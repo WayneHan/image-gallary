@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallary</title>
+</head>
+
+<body>
+    <h1>Snapshot</h1>
+    <ul>
+        <li>
+            <a href="images/award.gif" title="a beautiful award" onclick="getpic(this); return false">Award</a>
+        </li>
+        <li>
+            <a href="images/bag.gif" title="a shopping bag" onclick="getpic(this); return false">Bag</a>
+        </li>
+        <li>
+            <a href="images/ticket.gif" title="a coffee coupon" onclick="getpic(this); return false">Coupon</a>
+        </li>
+    </ul>
+    <section id="imagebrowser">
+        <img src="images/background.gif" id="placeholder" alt="my image gallary"></img>
+    </section>
+    
+    <script src="gallary.js"></script>
+</body>
+
+</html>
