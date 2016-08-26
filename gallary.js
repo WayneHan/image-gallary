@@ -14,3 +14,20 @@ function countBodyChildren() {
     alert(body_element.childNodes.length);
 }
 window.onload = countBodyChildren;
+
+window.onload = preparelink;
+function preparelink(){
+    var link = document.getElementsByTagName("a");
+    for(var i = 0; i < link.length; i++){
+        if(link[i].getAttribute("class") == "popUp"){
+            link[i].onclick = function (){
+                popUp(this.getAttribute("href"));
+                return false;
+            }
+        }
+    }
+}
+
+function popUp(winURL){
+    window.open(winURL, "popup", "width = 320, height = 480");
+}
