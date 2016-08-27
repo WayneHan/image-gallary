@@ -9,11 +9,12 @@ function getNewContent(){
                 para.appendChild(txt);
                 document.getElementById('new').appendChild(para);
             }
-        }
+        };
         request.send(null);
     }
     else{
         alert('Sorry, your browser doesn\'t support XMLHttpRequest');
     }
+    alert("Function Done");
 }
-addEventListener(getNewContent);
+addLoadEvent(getNewContent);
