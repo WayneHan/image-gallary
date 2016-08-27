@@ -4,7 +4,7 @@ function addLoadEvent(func){
         window.onload = func;
     }
     else{
-        widow.onload = function(){
+        window.onload = function(){
             oldonload();
             func();
         }

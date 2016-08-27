@@ -36,16 +36,4 @@ function displayAbbreviations() {
     document.body.appendChild(dlist);
 }
 
-function displayCitations(){
-    var quotes = document.getElementsByTagName("blockquote");
-    if(quotes.length < 1) return false;
-    var defs = new Array();
-    for(var i = 0; i < quotes.length; i++){
-        var current_cite = quotes[i];
-        if(current_cite.childNodes.length < 1) continue;
-        var url = current_cite.getAttribute("cite");
-    }
-}
-
-
 addLoadEvent(displayAbbreviations);
