@@ -1,26 +1,43 @@
 function getpic(pic) {
+    if (!document.getElementById("placeholder")) return false;
     var source = pic.getAttribute("href");
     var placeholder = document.getElementById("placeholder");
     placeholder.setAttribute("src", source);
 
-    var text = pic.getAttribute("title");
-    var replacetext = document.getElementById("description");
-    replacetext.firstChild.nodeValue = text;
-
+    if (document.getElementById("description")) {
+        var text = pic.getAttribute("title") ? pic.getAttribute("title") : "";
+        var replacetext = document.getElementById("description");
+        replacetext.firstChild.nodeValue = text;
+    }
+    return true;
 }
 
-function countBodyChildren() {
+window.onload = prepareGallary;
+function prepareGallary() {
+    if (!document.getElementById) return false;
+    if (!document.getElementsByTagName) return false;
+    var gallary = document.getElementById("imagegallary");
+    var link = gallary.getElementsByTagName("a");
+    for (var i = 0; i < link.length; i++) {
+        link[i].onclick = function () {
+            return getpic(this) ? false : true;
+        }
+        link[i].onkeypress = link[i].onclick;
+    }
+}
+
+/*function countBodyChildren() {
     var body_element = document.getElementsByTagName("body")[0];
     alert(body_element.childNodes.length);
 }
 window.onload = countBodyChildren;
 
-window.onload = preparelink;
-function preparelink(){
+window.onload = preparelink;*/
+/*function preparelink() {
     var link = document.getElementsByTagName("a");
-    for(var i = 0; i < link.length; i++){
-        if(link[i].getAttribute("class") == "popUp"){
-            link[i].onclick = function (){
+    for (var i = 0; i < link.length; i++) {
+        if (link[i].getAttribute("class") == "popUp") {
+            link[i].onclick = function () {
                 popUp(this.getAttribute("href"));
                 return false;
             }
@@ -28,6 +45,6 @@ function preparelink(){
     }
 }
 
-function popUp(winURL){
+function popUp(winURL) {
     window.open(winURL, "popup", "width = 320, height = 480");
-}
+}*/
