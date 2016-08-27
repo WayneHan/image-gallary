@@ -12,7 +12,35 @@ function getpic(pic) {
     return true;
 }
 
-window.onload = prepareGallary;
+function addloadevent(func){
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function'){
+		window.onload = func;
+	}
+	else{
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+addloadevent(prepareGallary);
+addloadevent(addimagebrowser);
+
+function addimagebrowser(){
+    var para = document.createElement("p");
+    para.setAttribute("id", "description");
+    var txt = document.createTextNode("Choose an image");
+    para.appendChild(txt);
+    document.body.appendChild(para);
+    var bg_img = document.createElement("img");
+    bg_img.setAttribute("src", "images/background.gif");
+    bg_img.setAttribute("id","placeholder");
+    bg_img.setAttribute("alt","my image gallary");
+    document.body.appendChild(bg_img);
+}
+
 function prepareGallary() {
     if (!document.getElementById) return false;
     if (!document.getElementsByTagName) return false;
