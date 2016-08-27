@@ -17,6 +17,7 @@ function getNextElement(node) {
     return null;
 }
 
+//表格隔行添加斑马线效果
 function stripeTables() {
     if (!document.getElementsByTagName) return false;
     var tables = document.getElementsByTagName("table");
@@ -36,4 +37,20 @@ function stripeTables() {
     }
 }
 
+//DOM 响应事件
+function highlightRows(){
+    if(!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName("tr");
+    for(var i = 0; i < rows.length; i ++){
+        rows[i].onmouseover = function(){
+            this.style.fontWeight = "bold";
+        }
+        rows[i].onmouseover = function(){
+            this.style.fontWeight = "normal";
+        }
+    }
+}
+
+addLoadEvent(highlightRows);
 addLoadEvent(styleHeaderSiblings);
+addLoadEvent(stripeTables);
