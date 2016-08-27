@@ -22,7 +22,6 @@ function prepareGallary() {
         link[i].onclick = function () {
             return getpic(this) ? false : true;
         }
-        link[i].onkeypress = link[i].onclick;
     }
 }
 
